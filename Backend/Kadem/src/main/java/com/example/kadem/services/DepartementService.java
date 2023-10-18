@@ -2,7 +2,9 @@ package com.example.kadem.services;
 
 
 import com.example.kadem.entities.Departement;
+import com.example.kadem.entities.Universite;
 import com.example.kadem.repositories.DepartementRepository;
+import com.example.kadem.repositories.UniversiteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +17,8 @@ public class DepartementService implements IDepartementService{
     @Autowired
     private final DepartementRepository departementRepository;
 
-  //  @Autowired
-   // UniversiteRepository universiteRepository;
+    @Autowired
+    private final UniversiteRepository universiteRepository;
     @Override
     public List<Departement> retrieveAllDepartements() {
         return departementRepository.findAll();
@@ -39,10 +41,5 @@ public class DepartementService implements IDepartementService{
         return departementRepository.findById(idDepart).get();
     }
 
-    @Override
-    public List<Departement> retrieveDepartementsByUniversite(Integer idUniversite) {
-    //    Universite universite = universiteRepository.findById(idUniversite).get();
-        //    return universite.getDepartements();
-        return null;
-    }
+
 }
