@@ -1,9 +1,11 @@
 package com.example.kadem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,9 +23,8 @@ public class Equipe  implements Serializable {
     @Enumerated(EnumType.STRING)
     private Niveau niveau;
 
-   // @ManyToMany(mappedBy = "equipes",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    // @JsonIgnore
-   // private List<Etudiant> etudiants;
-   // @OneToOne(cascade = CascadeType.ALL)
-   // private DetailEquipe detailEquipe;
+    @ManyToMany(mappedBy = "equipes",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+     @JsonIgnore
+    private List<Etudiant> etudiants;
+
 }
