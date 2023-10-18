@@ -6,11 +6,15 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.io.Serializable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Departement implements Serializable {
     @Id
@@ -18,5 +22,9 @@ public class Departement implements Serializable {
     Integer idDepartement;
 
     private String nomDepart;
+
+    @OneToMany(mappedBy = "departement")
+    @JsonIgnore
+    private List<Etudiant> etudiants;
 
 }
