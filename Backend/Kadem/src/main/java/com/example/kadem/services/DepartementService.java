@@ -15,7 +15,6 @@ public class DepartementService implements IDepartementService{
     @Autowired
     private final DepartementRepository departementRepository;
 
-
   //  @Autowired
    // UniversiteRepository universiteRepository;
     @Override
