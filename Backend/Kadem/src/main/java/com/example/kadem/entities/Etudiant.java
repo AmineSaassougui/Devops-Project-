@@ -30,13 +30,14 @@ public class Etudiant implements Serializable {
 
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
-    Set<Equipe> equipes;
+    private Set<Equipe> equipes;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JsonIgnore
     Departement departement;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "etudiant")
+    @JsonIgnore
     Set<Contrat> contrats;
 }
