@@ -12,16 +12,16 @@ import java.util.List;
 @RequestMapping("/etudiant")
 public class EtudiantRestController {
 
-    public final IEtudiantService etudiantServices;
+    private final IEtudiantService etudiantServices;
 
     @PostMapping("/add")
     Etudiant addEtudiant(@RequestBody Etudiant etudiant){
-        return etudiantServices.addEtudiant(etudiant);
+        return etudiantServices.addOrUpdateEtudiant(etudiant);
     }
 
     @PutMapping("/update")
     Etudiant updateEtudiant(@RequestBody Etudiant etudiant){
-        return etudiantServices.updateEtudiant(etudiant);
+        return etudiantServices.addOrUpdateEtudiant(etudiant);
     }
 
     @GetMapping("/get/{id}")
@@ -38,17 +38,8 @@ public class EtudiantRestController {
 
     @DeleteMapping("/delete/{id}")
     void deleteEtudiant(@PathVariable("id") Integer id){
-
         etudiantServices.removeEtudiant(id);
     }
 
-    /*@PutMapping("/asignEtudToDep/{idEtud}/{idDep}")
-    public Etudiant asignEtudToDep(@PathVariable("idEtud") Integer idEtud, @PathVariable("idDep") Integer idDep){
-        return etudiantServices.asignEtudToDep(idEtud,idDep);
-    }*/
 
-    /*@GetMapping("/getEtudiantsByDepartement/{idDepartement}")
-    public List<Etudiant> getEtudiantsByDepartement(@PathVariable("idDepartement") Integer idDepartement){
-        return etudiantServices.getEtudiantsByDepartement(idDepartement);
-    }*/
 }
