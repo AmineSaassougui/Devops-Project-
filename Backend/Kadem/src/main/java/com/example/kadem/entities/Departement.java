@@ -6,12 +6,15 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Departement {
     @Id
@@ -19,5 +22,9 @@ public class Departement {
     Integer idDepartement;
 
     private String nomDepart;
+
+    @OneToMany(mappedBy = "departement")
+    @JsonIgnore
+    private List<Etudiant> etudiants;
 
 }
