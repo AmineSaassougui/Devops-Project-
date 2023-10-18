@@ -29,15 +29,14 @@ public class DepartementRestController {
     @PostMapping("/add-departement")
     @ResponseBody
     public Departement addDepartement(@RequestBody Departement d) {
-        departementService.addDepartement(d);
+        departementService.addAndUpdateDepartement(d);
         return d;
     }
 
     @PutMapping("/update-departement")
     @ResponseBody
     public Departement updateDepartement(@RequestBody Departement departement) {
-        Departement d= departementService.updateDepartement(departement);
-        return d;
+        return departementService.addAndUpdateDepartement(departement);
     }
 
 
