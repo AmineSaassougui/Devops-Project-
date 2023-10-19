@@ -4,6 +4,7 @@ package com.example.kadem.controllers;
 import com.example.kadem.entities.Universite;
 import com.example.kadem.services.IUniversiteService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/universite")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UniversiteRestController {
 
     private final IUniversiteService universiteService;

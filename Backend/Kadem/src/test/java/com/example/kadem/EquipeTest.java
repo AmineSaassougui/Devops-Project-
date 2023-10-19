@@ -1,2 +1,3 @@
-package com.example.kadem;public class EquipeTest {
+package com.example.kadem;
+public class EquipeTest {
 }

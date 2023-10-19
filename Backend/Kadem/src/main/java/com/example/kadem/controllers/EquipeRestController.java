@@ -3,12 +3,13 @@ package com.example.kadem.controllers;
 import com.example.kadem.entities.Equipe;
 import com.example.kadem.services.IEquipeService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/equipe")
 public class EquipeRestController {
     private final IEquipeService equipeService;

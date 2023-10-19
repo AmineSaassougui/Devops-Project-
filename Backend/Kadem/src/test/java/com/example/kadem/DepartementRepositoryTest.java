@@ -29,7 +29,7 @@ public class DepartementRepositoryTest {
     @Autowired
     DepartementRepository departementRepository;
 
-    static Departement d = Departement.builder().nomDepart("informatique").etudiants(new ArrayList<>()).build();
+    //static Departement d = Departement.builder().nomDepart("informatique").etudiants(new ArrayList<>()).build();
 /*
     @Test
     @Order(1)

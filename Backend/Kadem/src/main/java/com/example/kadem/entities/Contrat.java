@@ -1,6 +1,7 @@
 package com.example.kadem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 
 import javax.persistence.*;
@@ -9,10 +10,13 @@ import java.util.Date;
 
 
 @Entity
-
-@Table(name = "Contrats")
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Contrat implements Serializable {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idContrat;

@@ -21,12 +21,11 @@ public class EquipeService implements IEquipeService {
         return equipeRepository.findAll();
     }
 
-    @Transactional
+    @Override
     public Equipe addOrUpdateEquipe(Equipe e) {
 
         return equipeRepository.save(e);
     }
-
 
 
     @Override
