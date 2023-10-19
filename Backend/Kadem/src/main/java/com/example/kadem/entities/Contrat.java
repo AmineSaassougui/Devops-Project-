@@ -29,7 +29,6 @@ public class Contrat implements Serializable {
     private Specialite specialite;
 
 
-
     @ManyToOne
     @JsonIgnore
     private Etudiant etudiant;

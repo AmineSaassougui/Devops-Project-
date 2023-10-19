@@ -3,7 +3,6 @@ package com.example.kadem.controllers;
 
 import com.example.kadem.entities.Contrat;
 import com.example.kadem.services.IContratService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

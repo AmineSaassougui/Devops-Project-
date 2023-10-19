@@ -2,7 +2,6 @@ package com.example.kadem.controllers;
 
 import com.example.kadem.entities.Etudiant;
 import com.example.kadem.services.IEtudiantService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,7 @@ public class EtudiantRestController {
 
     private final IEtudiantService etudiantServices;
 
-    @PostMapping("/add")
+    @RequestMapping(path = "/add", method = RequestMethod.POST)
     Etudiant addEtudiant(@RequestBody Etudiant etudiant){
         return etudiantServices.addOrUpdateEtudiant(etudiant);
     }
