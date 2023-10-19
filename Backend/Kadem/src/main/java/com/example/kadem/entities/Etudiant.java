@@ -28,7 +28,7 @@ public class Etudiant implements Serializable {
     @Enumerated(EnumType.STRING)
     Option option;
 
-    /*@JsonIgnore
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     Set<Equipe> equipes;
 
@@ -38,5 +38,5 @@ public class Etudiant implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "etudiant")
-    Set<Contrat> contrats;*/
+    Set<Contrat> contrats;
 }
