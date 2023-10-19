@@ -29,19 +29,19 @@ public class UniversiteRestController {
         return universiteService.retrieveUniversite(universiteId);
     }
 
-    // http://localhost:8089/Kaddem/universite/add-universite
+
     @PostMapping("/add-universite")
      @ResponseBody
     public Universite addUniversite(@RequestBody Universite u) {
-        Universite universite = universiteService.addUniversite(u);
+        Universite universite = universiteService.addOrUpdateUniversite(u);
         return universite;
     }
 
-    // http://localhost:8089/Kaddem/universite/update-universite
+    
     @PutMapping("/update-universite")
     @ResponseBody
     public Universite updateUniversite(@RequestBody Universite u) {
-        Universite universite= universiteService.updateUniversite(u);
+        Universite universite= universiteService.addOrUpdateUniversite(u);
         return universite;
     }
 

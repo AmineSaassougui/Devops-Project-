@@ -9,7 +9,7 @@ import java.util.Date;
 
 
 @Entity
-@Data
+
 @Table(name = "Contrats")
 public class Contrat implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -30,7 +30,7 @@ public class Contrat implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private  Etudiant etudiant;
+    private Etudiant etudiant;
 
 
 
