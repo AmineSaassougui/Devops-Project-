@@ -14,7 +14,7 @@ import java.util.List;
 @Slf4j
 public class EquipeService implements IEquipeService {
 
-    EquipeRepository equipeRepository;
+    private final EquipeRepository equipeRepository;
 
     @Override
     public List<Equipe> retrieveAllEquipes() {

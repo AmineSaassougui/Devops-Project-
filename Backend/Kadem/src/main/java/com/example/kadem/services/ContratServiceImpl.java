@@ -12,25 +12,22 @@ import java.util.List;
 @AllArgsConstructor
 public class ContratServiceImpl implements IContratService {
 
-    ContratRepository contratRepository;
+    private final ContratRepository contratRepository;
 
 
     @Override
     public List<Contrat> retrieveAllContrats() {
-        log.info("debut methode retrieveAllContrats");
         return contratRepository.findAll();
     }
 
     @Override
     public Contrat updateContrat(Contrat ce) {
-        log.info("debut methode updateContrat");
         contratRepository.save(ce);
         return ce;
     }
 
     @Override
     public Contrat retrieveContrat(Integer idContrat) {
-        log.info("debut methode retrieveContrat");
-        return contratRepository.findById(idContrat).get();
+        return contratRepository.findById(idContrat).orElse(new Contrat());
     }
 }
