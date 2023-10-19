@@ -33,10 +33,5 @@ public class DepartementService implements IDepartementService{
         return departementRepository.findById(idDepart).orElse(new Departement());
     }
 
-    @Override
-    public List<Departement> retrieveDepartementsByUniversite(Integer idUniversite) {
-    //    Universite universite = universiteRepository.findById(idUniversite).get();
-        //    return universite.getDepartements();
-        return null;
-    }
+
 }

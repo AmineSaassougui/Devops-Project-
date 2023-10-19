@@ -9,5 +9,4 @@ public interface IDepartementService {
     Departement addOrUpdateDepartement(Departement d);
 
     Departement retrieveDepartement(Integer idDepart);
-    public List<Departement> retrieveDepartementsByUniversite(Integer idUniversite);
 }
