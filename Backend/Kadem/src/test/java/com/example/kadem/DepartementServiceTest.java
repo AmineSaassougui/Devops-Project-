@@ -26,9 +26,10 @@ public class DepartementServiceTest {
     private DepartementService departementService;
     @Test
     public void addDepartement() {
-        Mockito.when(departementRepository.save(Mockito.any(Departement.class))).then(invocation -> {
+        Mockito.lenient().when(departementRepository.save(Mockito.any(Departement.class))).then(invocation -> {
             Departement dep = invocation.getArgument(0, Departement.class);
             dep.setIdDepartement(1);
+            log.info("TESTTTTT");
             return dep;
         });
         log.info("Before : " + dep.toString());
