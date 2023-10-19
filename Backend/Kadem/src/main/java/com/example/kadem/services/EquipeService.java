@@ -22,17 +22,13 @@ public class EquipeService implements IEquipeService {
     }
 
     @Transactional
-    public Equipe addEquipe(Equipe e) {
+    public Equipe addOrUpdateEquipe(Equipe e) {
 
         equipeRepository.save(e);
         return e;
     }
 
-    @Override
-    public Equipe updateEquipe(Equipe e) {
-        equipeRepository.save(e);
-        return e;
-    }
+
 
     @Override
     public Equipe retrieveEquipe(Integer idEquipe) {

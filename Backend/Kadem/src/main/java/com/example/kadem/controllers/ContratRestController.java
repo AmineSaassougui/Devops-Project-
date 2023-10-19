@@ -16,15 +16,14 @@ public class ContratRestController {
     IContratService contratService;
 
 
-    // http://localhost:8089/Kaddem/contrat/retrieve-all-contrats
+
     @GetMapping("/retrieve-all-contrats")
     @ResponseBody
     public List<Contrat> getContrats() {
-        List<Contrat> listContrats = contratService.retrieveAllContrats();
-        return listContrats;
+        return contratService.retrieveAllContrats();
     }
 
-    // http://localhost:8089/Kaddem/contrat/retrieve-contrat/8
+
     @GetMapping("/retrieve-contrat/{contrat-id}")
     @ResponseBody
     public Contrat retrieveContrat(@PathVariable("contrat-id") Integer contratId) {

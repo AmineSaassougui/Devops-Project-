@@ -23,16 +23,11 @@ public class DepartementService implements IDepartementService{
     }
 
     @Override
-    public Departement addDepartement(Departement d) {
+    public Departement addOrUpdateDepartement(Departement d) {
         departementRepository.save(d);
         return d;
     }
 
-    @Override
-    public Departement updateDepartement(Departement d) {
-        departementRepository.save(d);
-        return d;
-    }
 
     @Override
     public Departement retrieveDepartement(Integer idDepart) {

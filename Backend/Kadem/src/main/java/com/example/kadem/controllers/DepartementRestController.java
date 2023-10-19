@@ -16,8 +16,7 @@ public class DepartementRestController {
     @GetMapping("/retrieve-all-departements")
     @ResponseBody
     public List<Departement> getDepartements() {
-        List<Departement> listDepartements = departementService.retrieveAllDepartements();
-        return listDepartements;
+        return departementService.retrieveAllDepartements();
     }
 
     @GetMapping("/retrieve-departement/{departement-id}")
@@ -29,22 +28,22 @@ public class DepartementRestController {
     @PostMapping("/add-departement")
     @ResponseBody
     public Departement addDepartement(@RequestBody Departement d) {
-        departementService.addDepartement(d);
-        return d;
+
+        return departementService.addOrUpdateDepartement(d);
     }
 
     @PutMapping("/update-departement")
     @ResponseBody
     public Departement updateDepartement(@RequestBody Departement departement) {
-        Departement d= departementService.updateDepartement(departement);
-        return d;
+
+        return departementService.addOrUpdateDepartement(departement);
     }
 
     @GetMapping("/retrieveDepartementsByUniversite/{idUniversite}")
     @ResponseBody
     public List<Departement> retrieveDepartementsByUniversite(@PathVariable("idUniversite") Integer idUniversite) {
-        List<Departement> listDepartements = departementService.retrieveDepartementsByUniversite(idUniversite);
-        return listDepartements;
+
+        return departementService.retrieveDepartementsByUniversite(idUniversite);
     }
 
 
