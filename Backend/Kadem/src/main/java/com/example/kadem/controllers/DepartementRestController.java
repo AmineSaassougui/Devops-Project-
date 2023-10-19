@@ -14,31 +14,31 @@ public class DepartementRestController {
     IDepartementService departementService;
 
     @GetMapping("/retrieve-all-departements")
-    @ResponseBody
+
     public List<Departement> getDepartements() {
         return departementService.retrieveAllDepartements();
     }
 
     @GetMapping("/retrieve-departement/{departement-id}")
-    @ResponseBody
+
     public Departement retrieveDepartement(@PathVariable("departement-id") Integer departementId) {
         return departementService.retrieveDepartement(departementId);
     }
 
     @PostMapping("/add-departement")
-    @ResponseBody
+
     public Departement addDepartement(@RequestBody Departement d) {
 
         return departementService.addOrUpdateDepartement(d);
     }
 
     @PutMapping("/update-departement")
-    @ResponseBody
+
     public Departement updateDepartement(@RequestBody Departement departement) {
 
         return departementService.addOrUpdateDepartement(departement);
     }
 
-    
+
 
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class DepartementService implements IDepartementService{
-    @Autowired
+
     private final DepartementRepository departementRepository;
 
 
@@ -23,8 +23,8 @@ public class DepartementService implements IDepartementService{
 
     @Override
     public Departement addOrUpdateDepartement(Departement d) {
-        departementRepository.save(d);
-        return d;
+        
+        return departementRepository.save(d);
     }
 
 

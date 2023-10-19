@@ -17,20 +17,20 @@ public class UniversiteRestController {
     IUniversiteService universiteService;
 
     @GetMapping("/retrieve-all-universites")
-    @ResponseBody
+
     public List<Universite> getUniversites() {
         return universiteService.retrieveAllUniversites();
     }
 
     @GetMapping("/retrieve-universite/{universite-id}")
-       @ResponseBody
+
     public Universite retrieveUniversite(@PathVariable("universite-id") Integer universiteId) {
         return universiteService.retrieveUniversite(universiteId);
     }
 
 
     @PostMapping("/add-universite")
-     @ResponseBody
+
     public Universite addUniversite(@RequestBody Universite u) {
         return  universiteService.addOrUpdateUniversite(u);
 
@@ -38,7 +38,7 @@ public class UniversiteRestController {
 
 
     @PutMapping("/update-universite")
-    @ResponseBody
+
     public Universite updateUniversite(@RequestBody Universite u) {
         return universiteService.addOrUpdateUniversite(u);
 
