@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/departement")
-
 public class DepartementRestController {
     @Autowired
     IDepartementService departementService;
@@ -30,23 +29,17 @@ public class DepartementRestController {
     @PostMapping("/add-departement")
     @ResponseBody
     public Departement addDepartement(@RequestBody Departement d) {
-        departementService.addDepartement(d);
+        departementService.addAndUpdateDepartement(d);
         return d;
     }
 
     @PutMapping("/update-departement")
     @ResponseBody
     public Departement updateDepartement(@RequestBody Departement departement) {
-        Departement d= departementService.updateDepartement(departement);
-        return d;
+        return departementService.addAndUpdateDepartement(departement);
     }
 
-    @GetMapping("/retrieveDepartementsByUniversite/{idUniversite}")
-    @ResponseBody
-    public List<Departement> retrieveDepartementsByUniversite(@PathVariable("idUniversite") Integer idUniversite) {
-        List<Departement> listDepartements = departementService.retrieveDepartementsByUniversite(idUniversite);
-        return listDepartements;
-    }
+
 
 
 }

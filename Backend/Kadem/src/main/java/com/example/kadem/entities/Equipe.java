@@ -26,4 +26,5 @@ public class Equipe  implements Serializable {
     @ManyToMany(mappedBy = "equipes",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
      @JsonIgnore
     private List<Etudiant> etudiants;
+
 }

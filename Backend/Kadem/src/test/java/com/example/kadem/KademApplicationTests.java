@@ -8,6 +8,7 @@ class KademApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }
