@@ -36,7 +36,7 @@ public class DepartementService implements IDepartementService{
 
     @Override
     public Departement retrieveDepartement(Integer idDepart) {
-        return departementRepository.findById(idDepart).get();
+        return departementRepository.findById(idDepart).orElse(new Departement());
     }
 
     @Override
