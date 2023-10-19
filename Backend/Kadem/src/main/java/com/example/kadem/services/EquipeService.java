@@ -24,8 +24,7 @@ public class EquipeService implements IEquipeService {
     @Transactional
     public Equipe addOrUpdateEquipe(Equipe e) {
 
-        equipeRepository.save(e);
-        return e;
+        return equipeRepository.save(e);
     }
 
 

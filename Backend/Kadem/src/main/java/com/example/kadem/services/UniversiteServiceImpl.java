@@ -23,8 +23,8 @@ public class UniversiteServiceImpl implements  IUniversiteService{
 
     @Override
     public Universite addOrUpdateUniversite (Universite u) {
-        universiteRepository.save(u);
-        return u;
+
+        return universiteRepository.save(u);
     }
 
 
