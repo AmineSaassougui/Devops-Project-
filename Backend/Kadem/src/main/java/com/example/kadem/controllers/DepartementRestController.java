@@ -39,12 +39,6 @@ public class DepartementRestController {
         return departementService.addOrUpdateDepartement(departement);
     }
 
-    @GetMapping("/retrieveDepartementsByUniversite/{idUniversite}")
-    @ResponseBody
-    public List<Departement> retrieveDepartementsByUniversite(@PathVariable("idUniversite") Integer idUniversite) {
-
-        return departementService.retrieveDepartementsByUniversite(idUniversite);
-    }
-
+    
 
 }
