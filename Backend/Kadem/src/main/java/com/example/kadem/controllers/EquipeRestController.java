@@ -16,7 +16,7 @@ public class EquipeRestController {
 
     @GetMapping("/retrieve-all-equipes")
 
-    public List<Equipe> getEquipes() {
+     List<Equipe> getEquipes() {
         return equipeService.retrieveAllEquipes();
     }
 
@@ -24,14 +24,14 @@ public class EquipeRestController {
 
     @GetMapping("/retrieve-equipe/{equipe-id}")
 
-    public Equipe retrieveEquipe(@PathVariable("equipe-id") Integer equipeId) {
+     Equipe retrieveEquipe(@PathVariable("equipe-id") Integer equipeId) {
         return equipeService.retrieveEquipe(equipeId);
     }
 
 
     @PostMapping("/add-equipe")
 
-    public Equipe addEquipe(@RequestBody Equipe e) {
+     Equipe addEquipe(@RequestBody Equipe e) {
 
         return equipeService.addOrUpdateEquipe(e);
     }
@@ -39,7 +39,7 @@ public class EquipeRestController {
 
     @PutMapping("/update-equipe")
 
-    public Equipe updateEtudiant(@RequestBody Equipe e) {
+     Equipe updateEtudiant(@RequestBody Equipe e) {
 
         return equipeService.addOrUpdateEquipe(e);
     }

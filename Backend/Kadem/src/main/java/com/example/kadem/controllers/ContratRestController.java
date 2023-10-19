@@ -19,14 +19,14 @@ public class ContratRestController {
 
     @GetMapping("/retrieve-all-contrats")
 
-    public List<Contrat> getContrats() {
+     List<Contrat> getContrats() {
         return contratService.retrieveAllContrats();
     }
 
 
     @GetMapping("/retrieve-contrat/{contrat-id}")
 
-    public Contrat retrieveContrat(@PathVariable("contrat-id") Integer contratId) {
+     Contrat retrieveContrat(@PathVariable("contrat-id") Integer contratId) {
         return contratService.retrieveContrat(contratId);
     }
 }

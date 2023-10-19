@@ -19,20 +19,20 @@ public class UniversiteRestController {
 
     @GetMapping("/retrieve-all-universites")
 
-    public List<Universite> getUniversites() {
+     List<Universite> getUniversites() {
         return universiteService.retrieveAllUniversites();
     }
 
     @GetMapping("/retrieve-universite/{universite-id}")
 
-    public Universite retrieveUniversite(@PathVariable("universite-id") Integer universiteId) {
+     Universite retrieveUniversite(@PathVariable("universite-id") Integer universiteId) {
         return universiteService.retrieveUniversite(universiteId);
     }
 
 
     @PostMapping("/add-universite")
 
-    public Universite addUniversite(@RequestBody Universite u) {
+     Universite addUniversite(@RequestBody Universite u) {
         return  universiteService.addOrUpdateUniversite(u);
 
     }
@@ -40,7 +40,7 @@ public class UniversiteRestController {
 
     @PutMapping("/update-universite")
 
-    public Universite updateUniversite(@RequestBody Universite u) {
+     Universite updateUniversite(@RequestBody Universite u) {
         return universiteService.addOrUpdateUniversite(u);
 
     }
