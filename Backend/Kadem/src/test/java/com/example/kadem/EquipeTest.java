@@ -3,34 +3,62 @@ package com.example.kadem;
 import com.example.kadem.entities.Equipe;
 import com.example.kadem.entities.Niveau;
 import com.example.kadem.repositories.EquipeRepository;
-import org.junit.jupiter.api.Test;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.Optional;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-@DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@SpringBootTest
+@Slf4j
+@ExtendWith(SpringExtension.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EquipeTest {
     @Autowired
     EquipeRepository equipeRepository;
+
+    static Equipe e=Equipe.builder().nomEquipe("Equipe7").niveau(Niveau.EXPERT).build();
+
     @Test
+    @Order(0)
     public void testEquipeCreation() {
-        Equipe equipe = new Equipe(1, "Equipe7", Niveau.EXPERT,null);
-
-        assertEquals(1, equipe.getIdEquipe());
-        assertEquals("Equipe7", equipe.getNomEquipe());
-        assertEquals(Niveau.EXPERT, equipe.getNiveau());
+         e=equipeRepository.save(e);
+         log.info("Ajout ==>", e);
+        Assertions.assertNotNull(e.getIdEquipe());
+        Assertions.assertNotEquals(0,e.getIdEquipe());
+    }
+    @Test
+    @Order(1)
+    public void testEquipeModification() {
+        e.setNomEquipe("equipeKaddem");
+        e=equipeRepository.save(e);
+        log.info("Modif ==>",e.toString());
+        Assertions.assertNotEquals("Equipe7",e.getNomEquipe());
+        Assertions.assertSame("equipeKaddem",e.getNomEquipe());
+    }
+    @Test
+    @Order(2)
+    public void testEquipeListe() {
+        List<Equipe> list =equipeRepository.findAll();
+        log.info("Liste ==>",list.size());
+        Assertions.assertTrue(list.size()>0);
+    }
+    @Test
+    @Order(3)
+    public void testEquipeChercher() {
+        log.info("cherche equipe avec ID ==>",e.getIdEquipe());
+        Equipe e1 = equipeRepository.findById(e.getIdEquipe()).get();
+        Assertions.assertEquals(e1.getNomEquipe(),e.getNomEquipe());
 
     }
     @Test
-    public void testAjouterEquipe() {
-        Equipe equipe = new Equipe();
-        equipe.setNomEquipe("equipe7");
-        Equipe savedEquipe = equipeRepository.save(equipe);
-        Optional<Equipe> retrievedequipe = equipeRepository.findById(savedEquipe.getIdEquipe());
-        assertEquals("equipe7", retrievedequipe.get().getNomEquipe());
+    @Order(4)
+    public void testEquipeSupprimer() {
+        equipeRepository.delete(e);
+
     }
+
 }
