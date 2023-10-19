@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/contrat")
 public class ContratRestController {
 
-    IContratService contratService;
+    private final IContratService contratService;
 
 
 

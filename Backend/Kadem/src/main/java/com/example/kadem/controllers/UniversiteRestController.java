@@ -3,6 +3,7 @@ package com.example.kadem.controllers;
 
 import com.example.kadem.entities.Universite;
 import com.example.kadem.services.IUniversiteService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/universite")
-
+@AllArgsConstructor
 public class UniversiteRestController {
-    @Autowired
-    IUniversiteService universiteService;
+
+    private final IUniversiteService universiteService;
 
     @GetMapping("/retrieve-all-universites")
 

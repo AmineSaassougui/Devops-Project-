@@ -2,6 +2,7 @@ package com.example.kadem.controllers;
 
 import com.example.kadem.entities.Departement;
 import com.example.kadem.services.IDepartementService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,9 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/departement")
+@AllArgsConstructor
 public class DepartementRestController {
-    @Autowired
-    IDepartementService departementService;
+
+    private final IDepartementService departementService;
 
     @GetMapping("/retrieve-all-departements")
 

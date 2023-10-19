@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/equipe")
 public class EquipeRestController {
-    IEquipeService equipeService;
+    private final IEquipeService equipeService;
 
 
     @GetMapping("/retrieve-all-equipes")
