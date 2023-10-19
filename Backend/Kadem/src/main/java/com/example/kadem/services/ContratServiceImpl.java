@@ -13,8 +13,7 @@ import java.util.List;
 public class ContratServiceImpl implements IContratService {
 
     ContratRepository contratRepository;
-
-
+    
 
     @Override
     public List<Contrat> retrieveAllContrats() {

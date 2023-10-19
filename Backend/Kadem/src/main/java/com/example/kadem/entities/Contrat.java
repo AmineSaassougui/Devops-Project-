@@ -1,7 +1,7 @@
 package com.example.kadem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,8 +25,6 @@ public class Contrat implements Serializable {
     private Specialite specialite;
 
 
-    private Boolean archived;
-    private Integer montantContrat;
 
     @ManyToOne
     @JsonIgnore

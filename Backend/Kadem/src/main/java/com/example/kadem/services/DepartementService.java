@@ -15,8 +15,7 @@ public class DepartementService implements IDepartementService{
     @Autowired
     private final DepartementRepository departementRepository;
 
-  //  @Autowired
-   // UniversiteRepository universiteRepository;
+
     @Override
     public List<Departement> retrieveAllDepartements() {
         return departementRepository.findAll();
