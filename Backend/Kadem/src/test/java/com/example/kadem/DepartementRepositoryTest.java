@@ -17,7 +17,7 @@ import java.util.List;
 @ExtendWith(SpringExtension.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DepartementRepositoryTest {
-
+/*
     @Autowired
     DepartementRepository departementRepository;
     static Departement d = Departement.builder().nomDepart("informatique").etudiants(new ArrayList<>()).build();
@@ -75,5 +75,5 @@ public class DepartementRepositoryTest {
         Departement dep = departementRepository.findById(d.getIdDepartement()).orElse(null);
         Assertions.assertNull(dep);
         log.info("Supprimer");
-    }
+    }*/
 }

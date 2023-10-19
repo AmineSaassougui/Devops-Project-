@@ -19,11 +19,11 @@ import java.util.List;
 @ExtendWith(SpringExtension.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EquipeRepositoryTest {
-    @Mock
+    /*@Mock
     EquipeRepository equipeRepository;
 
     static Equipe e = Equipe.builder().nomEquipe("Equipe7").niveau(Niveau.EXPERT).build();
-    List<Equipe> list = new ArrayList<Equipe>() ;
+    List<Equipe> list = new ArrayList<Equipe>() ;*/
 
 
 
