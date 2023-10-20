@@ -1,5 +1,6 @@
 package com.example.kadem.controllers;
 
+import com.example.kadem.dto.EtudiantDto;
 import com.example.kadem.entities.Etudiant;
 import com.example.kadem.services.IEtudiantService;
 import lombok.RequiredArgsConstructor;
@@ -14,18 +15,18 @@ public class EtudiantRestController {
 
     private final IEtudiantService etudiantServices;
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST)
-    Etudiant addEtudiant(@RequestBody Etudiant etudiant){
+    @PostMapping("/add")
+    EtudiantDto addEtudiant(@RequestBody EtudiantDto etudiant){
         return etudiantServices.addOrUpdateEtudiant(etudiant);
     }
 
     @PutMapping("/update")
-    Etudiant updateEtudiant(@RequestBody Etudiant etudiant){
+    EtudiantDto updateEtudiant(@RequestBody EtudiantDto etudiant){
         return etudiantServices.addOrUpdateEtudiant(etudiant);
     }
 
     @GetMapping("/get/{id}")
-    Etudiant getEtudiant(@PathVariable("id") Integer id){
+    EtudiantDto getEtudiant(@PathVariable("id") Integer id){
 
         return etudiantServices.retrieveEtudiant(id);
     }

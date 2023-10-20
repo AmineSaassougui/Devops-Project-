@@ -1,9 +1,11 @@
 package com.example.kadem.services;
+import com.example.kadem.dto.EtudiantDto;
 import com.example.kadem.entities.Etudiant;
 import com.example.kadem.repositories.EtudiantRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -18,15 +20,20 @@ public class EtudiantServiceImpl implements IEtudiantService{
     }
 
     @Override
-    public Etudiant addOrUpdateEtudiant(Etudiant e) {
-        etudiantRepository.save(e);
-        return e;
+    public EtudiantDto addOrUpdateEtudiant(EtudiantDto e) {
+
+        return EtudiantDto.toDto(etudiantRepository.save(Etudiant.toEntity(e)));
     }
 
 
     @Override
-    public Etudiant retrieveEtudiant(Integer idEtudiant) {
-        return etudiantRepository.findById(idEtudiant).orElse(new Etudiant());
+    public EtudiantDto retrieveEtudiant(Integer idEtudiant) {
+        Optional<Etudiant> etud = this.etudiantRepository.findById(idEtudiant);
+        if (etud.isPresent()){
+            return EtudiantDto.toDto(etud.get());
+        }
+        else
+            return null;
     }
 
     @Override

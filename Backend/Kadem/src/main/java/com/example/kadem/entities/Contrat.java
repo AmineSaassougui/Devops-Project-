@@ -15,6 +15,7 @@ import java.util.Date;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Contrat implements Serializable {
 
     @Id
