@@ -41,8 +41,7 @@ public class Etudiant implements Serializable {
 
     @OneToMany(mappedBy = "etudiant")
     @JsonIgnore
-            @Transient
-    Set<Contrat> contrats;
+    private Set<Contrat> contrats;
 
     public static Etudiant toEntity(EtudiantDto dto){
         return Etudiant.builder()
