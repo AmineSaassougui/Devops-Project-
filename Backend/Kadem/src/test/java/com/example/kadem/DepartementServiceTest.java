@@ -32,7 +32,6 @@ class DepartementServiceTest {
             m.setIdDepartement(1);
             return m;
         });
-
         log.info("Before : " + dep.getIdDepartement());
         Departement depar = departementService.addAndUpdateDepartement(dep);
         Assertions.assertSame(depar, dep);
@@ -42,7 +41,6 @@ class DepartementServiceTest {
     @Test
     void retrieveOneDepartementTest() {
         Mockito.when(departementRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(new Departement()));
-
         Departement retrievedDepartement = departementService.retrieveDepartement(1);
         Assertions.assertNotNull(retrievedDepartement);
         Mockito.verify(departementRepository).findById(Mockito.anyInt());
@@ -53,14 +51,20 @@ class DepartementServiceTest {
         List<Departement> deps = new ArrayList<>();
         deps.add(new Departement());
         deps.add(new Departement());
-
         Mockito.when(departementRepository.findAll()).thenReturn(deps);
-
         List<Departement> retrievedDepartements = departementService.retrieveAllDepartements();
         Assertions.assertNotNull(retrievedDepartements);
-
         Mockito.verify(departementRepository).findAll();
     }
+/*
+    @Test
+    void supprimerDepartmentTest() {
+        int id = 1;
+        //Mockito.when(departementRepository.deleteById(Mockito.anyInt())).then();
+
+        departementService.deleteDepartement(id);
+
+    }*/
 
 
 }
