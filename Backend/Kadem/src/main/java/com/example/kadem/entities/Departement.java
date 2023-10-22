@@ -1,5 +1,6 @@
 package com.example.kadem.entities;
 
+import com.example.kadem.dto.DepartementDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -27,4 +28,10 @@ public class Departement implements Serializable {
     @JsonIgnore
     private List<Etudiant> etudiants;
 
+    public static Departement toEntity(DepartementDto dto){
+        return Departement.builder()
+                .idDepartement(dto.getIdDepartement())
+                .nomDepart(dto.getNomDepart())
+                .build();
+    }
 }

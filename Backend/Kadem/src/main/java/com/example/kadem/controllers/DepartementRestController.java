@@ -1,5 +1,6 @@
 package com.example.kadem.controllers;
 
+import com.example.kadem.dto.DepartementDto;
 import com.example.kadem.entities.Departement;
 import com.example.kadem.services.IDepartementService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,7 @@ public class DepartementRestController {
     @GetMapping("/retrieve-all-departements")
     @ResponseBody
     public List<Departement> getDepartements() {
-        List<Departement> listDepartements = departementService.retrieveAllDepartements();
-        return listDepartements;
+        return departementService.retrieveAllDepartements();
     }
 
     @GetMapping("/retrieve-departement/{departement-id}")
@@ -28,15 +28,16 @@ public class DepartementRestController {
 
     @PostMapping("/add-departement")
     @ResponseBody
-    public Departement addDepartement(@RequestBody Departement d) {
-        departementService.addAndUpdateDepartement(d);
-        return d;
+    public Departement addDepartement(@RequestBody DepartementDto d) {
+        Departement dep = Departement.toEntity(d);
+        return departementService.addAndUpdateDepartement(dep);
     }
 
     @PutMapping("/update-departement")
     @ResponseBody
-    public Departement updateDepartement(@RequestBody Departement departement) {
-        return departementService.addAndUpdateDepartement(departement);
+    public Departement updateDepartement(@RequestBody DepartementDto departement) {
+        Departement dep = Departement.toEntity(departement);
+        return departementService.addAndUpdateDepartement(dep);
     }
 
 
