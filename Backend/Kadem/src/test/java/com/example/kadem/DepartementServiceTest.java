@@ -6,11 +6,14 @@ import com.example.kadem.services.DepartementService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,7 @@ import java.util.Optional;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Slf4j
+@ExtendWith(MockitoExtension.class)
 public class DepartementServiceTest {
     @Mock
     private DepartementRepository departementRepository;
@@ -28,7 +32,7 @@ public class DepartementServiceTest {
     @InjectMocks
     private DepartementService departementService;
     @Test
-    public void addDepartement() {
+    void addDepartement() {
         Mockito.lenient().when(departementRepository.save(Mockito.any(Departement.class))).then(invocation -> {
             Departement dep = invocation.getArgument(0, Departement.class);
             dep.setIdDepartement(1);
@@ -40,24 +44,22 @@ public class DepartementServiceTest {
         Assertions.assertSame(depar, dep);
         log.info("After : " + dep.toString());
     }
-
     @Test
-    public void retrieveOneDepartementTest() {
-        int departementId = 1;
+    void retrieveOneDepartementTest() {
         Departement expectedDepartement = new Departement();
-        expectedDepartement.setIdDepartement(departementId);
+        expectedDepartement.setIdDepartement(1);
 
-        Mockito.when(departementRepository.findById(departementId)).thenReturn(Optional.of(expectedDepartement));
-        Departement retrievedDepartement = departementService.retrieveDepartement(departementId);
+        Mockito.when(departementRepository.findById(1)).thenReturn(Optional.of(expectedDepartement));
+        Departement retrievedDepartement = departementService.retrieveDepartement(1);
 
         Assertions.assertNotNull(retrievedDepartement);
-        Assertions.assertEquals(departementId, retrievedDepartement.getIdDepartement());
+        Assertions.assertEquals(1, retrievedDepartement.getIdDepartement());
 
-        Mockito.verify(departementRepository, Mockito.times(1)).findById(departementId);
+        Mockito.verify(departementRepository, Mockito.times(1)).findById(1);
     }
 
     @Test
-    public void retrieveAllDepartementsTest() {
+    void retrieveAllDepartementsTest() {
         List<Departement> expectedDepartements = new ArrayList<>();
         expectedDepartements.add(new Departement());
         expectedDepartements.add(new Departement());
@@ -67,7 +69,9 @@ public class DepartementServiceTest {
         List<Departement> retrievedDepartements = departementService.retrieveAllDepartements();
         Assertions.assertNotNull(retrievedDepartements);
         Assertions.assertEquals(expectedDepartements.size(), retrievedDepartements.size());
+
         Mockito.verify(departementRepository, Mockito.times(1)).findAll();
     }
+
 
 }
