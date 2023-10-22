@@ -2,7 +2,6 @@ package com.example.kadem.services;
 import com.example.kadem.dto.EtudiantDto;
 import com.example.kadem.entities.Etudiant;
 import com.example.kadem.repositories.EtudiantRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
