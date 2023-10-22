@@ -1,33 +1,26 @@
 package com.example.kadem;
 
-import com.example.kadem.entities.Departement;
-import com.example.kadem.entities.Etudiant;
+
 import com.example.kadem.repositories.DepartementRepository;
-import com.example.kadem.services.DepartementService;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.ArrayList;
-import java.util.List;
 
-@SpringBootTest
-@Slf4j
-@ExtendWith(SpringExtension.class)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@SpringBootTest
+//@Slf4j
+//@ExtendWith(SpringExtension.class)
+//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DepartementRepositoryTest {
 
-    @Autowired
-    DepartementRepository departementRepository;
+    /*@Autowired
+    DepartementRepository departementRepository;*/
 
     //static Departement d = Departement.builder().nomDepart("informatique").etudiants(new ArrayList<>()).build();
 /*

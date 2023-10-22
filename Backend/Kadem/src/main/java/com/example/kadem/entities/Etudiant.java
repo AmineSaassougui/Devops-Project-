@@ -44,11 +44,13 @@ public class Etudiant implements Serializable {
     private Set<Contrat> contrats;
 
     public static Etudiant toEntity(EtudiantDto dto){
-        return Etudiant.builder()
-                .idEtudiant(dto.getIdEtudiant())
-                .nomE(dto.getNomE())
-                .prenomE(dto.getPrenomE())
-                .option(dto.getOption())
-                .build();
-    }
+
+            return Etudiant.builder()
+                    .idEtudiant(dto.getIdEtudiant())
+                    .prenomE(dto.getPrenomE())
+                    .nomE(dto.getNomE())
+                    .option(dto.getOption())
+                    .build();
+        }
+
 }

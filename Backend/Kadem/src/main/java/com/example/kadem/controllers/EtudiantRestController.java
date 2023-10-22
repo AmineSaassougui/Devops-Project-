@@ -27,7 +27,6 @@ public class EtudiantRestController {
 
     @GetMapping("/get/{id}")
     EtudiantDto getEtudiant(@PathVariable("id") Integer id){
-
         return etudiantServices.retrieveEtudiant(id);
     }
 

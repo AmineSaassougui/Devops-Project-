@@ -9,6 +9,7 @@ import lombok.experimental.FieldDefaults;
 @Data
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -19,12 +20,13 @@ public class EtudiantDto {
     Option option;
 
     public static EtudiantDto toDto(Etudiant etudiant){
-        return EtudiantDto.builder()
-                .idEtudiant(etudiant.getIdEtudiant())
-                .prenomE(etudiant.getPrenomE())
-                .nomE(etudiant.getNomE())
-                .option(etudiant.getOption())
-                .build();
+            return EtudiantDto.builder()
+                    .idEtudiant(etudiant.getIdEtudiant())
+                    .prenomE(etudiant.getPrenomE())
+                    .nomE(etudiant.getNomE())
+                    .option(etudiant.getOption())
+                    .build();
+
     }
 
 }
