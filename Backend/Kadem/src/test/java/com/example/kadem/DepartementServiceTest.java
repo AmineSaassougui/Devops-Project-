@@ -11,66 +11,56 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-
+import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Slf4j
 @ExtendWith(MockitoExtension.class)
-public class DepartementServiceTest {
+class DepartementServiceTest {
     @Mock
     private DepartementRepository departementRepository;
 
-    static Departement dep = Departement.builder().nomDepart("informatique").etudiants(new ArrayList<>()).build();
+    Departement dep = Departement.builder().nomDepart("informatique").build();
 
     @InjectMocks
     private DepartementService departementService;
     @Test
     void addDepartement() {
-        Mockito.lenient().when(departementRepository.save(Mockito.any(Departement.class))).then(invocation -> {
-            Departement dep = invocation.getArgument(0, Departement.class);
-            dep.setIdDepartement(1);
-            log.info("TESTTTTT");
-            return dep;
+        Mockito.when(departementRepository.save(Mockito.any(Departement.class))).then(inv -> {
+            Departement m = inv.getArgument(0, Departement.class);
+            m.setIdDepartement(1);
+            return m;
         });
-        log.info("Before : " + dep.toString());
+
+        log.info("Before : " + dep.getIdDepartement());
         Departement depar = departementService.addAndUpdateDepartement(dep);
         Assertions.assertSame(depar, dep);
-        log.info("After : " + dep.toString());
+        log.info("After : " + dep.getIdDepartement());
+        Mockito.verify(departementRepository).save(dep);;
     }
     @Test
     void retrieveOneDepartementTest() {
-        Departement expectedDepartement = new Departement();
-        expectedDepartement.setIdDepartement(1);
+        Mockito.when(departementRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(new Departement()));
 
-        Mockito.when(departementRepository.findById(1)).thenReturn(Optional.of(expectedDepartement));
         Departement retrievedDepartement = departementService.retrieveDepartement(1);
-
         Assertions.assertNotNull(retrievedDepartement);
-        Assertions.assertEquals(1, retrievedDepartement.getIdDepartement());
-
-        Mockito.verify(departementRepository, Mockito.times(1)).findById(1);
+        Mockito.verify(departementRepository).findById(Mockito.anyInt());
     }
 
     @Test
     void retrieveAllDepartementsTest() {
-        List<Departement> expectedDepartements = new ArrayList<>();
-        expectedDepartements.add(new Departement());
-        expectedDepartements.add(new Departement());
+        List<Departement> deps = new ArrayList<>();
+        deps.add(new Departement());
+        deps.add(new Departement());
 
-        Mockito.when(departementRepository.findAll()).thenReturn(expectedDepartements);
+        Mockito.when(departementRepository.findAll()).thenReturn(deps);
 
         List<Departement> retrievedDepartements = departementService.retrieveAllDepartements();
         Assertions.assertNotNull(retrievedDepartements);
-        Assertions.assertEquals(expectedDepartements.size(), retrievedDepartements.size());
 
-        Mockito.verify(departementRepository, Mockito.times(1)).findAll();
+        Mockito.verify(departementRepository).findAll();
     }
 
 

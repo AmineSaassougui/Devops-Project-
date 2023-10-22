@@ -21,8 +21,7 @@ public class DepartementService implements IDepartementService{
 
     @Override
     public Departement addAndUpdateDepartement(Departement d) {
-        departementRepository.save(d);
-        return d;
+        return departementRepository.save(d);
     }
 
     @Override
