@@ -68,6 +68,7 @@ public class DepartementRepositoryTest {
         log.info("Compter ==> " + t);
         Assertions.assertEquals(t, departementRepository.findAll().size());
     }
+
     @Test
     @Order(6)
     public void supprimerDepartement() {
