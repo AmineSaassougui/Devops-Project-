@@ -27,11 +27,11 @@ public class Etudiant implements Serializable {
 
     @Enumerated(EnumType.STRING)
     Option option;
-
+/*
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<Equipe> equipes;
-
+*/
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JsonIgnore
     Departement departement;
