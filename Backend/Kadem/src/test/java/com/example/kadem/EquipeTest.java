@@ -17,7 +17,7 @@ import java.util.List;
 @ExtendWith(SpringExtension.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EquipeTest {
-   /* @Autowired
+    @Autowired
     EquipeRepository equipeRepository;
 
     static Equipe e=Equipe.builder().nomEquipe("Equipe7").niveau(Niveau.EXPERT).build();
@@ -59,6 +59,6 @@ public class EquipeTest {
     public void testEquipeSupprimer() {
         equipeRepository.delete(e);
 
-    }*/
+    }
 
 }
