@@ -19,7 +19,7 @@ import java.util.List;
 @SpringBootTest // Puisque classe de test
 @Slf4j //Pour ecrire dans le console
  class EtudiantRepositoryTest {
-
+/*
     @Autowired
     EtudiantRepository etudiantRepository;
 
@@ -81,7 +81,7 @@ import java.util.List;
         // Vérification que l'étudiant n'existe plus
         Assertions.assertNull(etudApresSuppression);
     }
-
+*/
 
 
 

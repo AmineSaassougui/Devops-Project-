@@ -22,7 +22,6 @@ import java.util.List;
 @SpringBootTest
 @Slf4j
 @ExtendWith(SpringExtension.class)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EquipeRepositoryTest {
     @Mock
     EquipeRepository equipeRepository;
@@ -38,7 +37,7 @@ public class EquipeRepositoryTest {
             return equipe;
         });
         log.info("Before : " + equipe.toString());
-        Equipe equipe2 = equipeService.addEquipe(equipe);
+        Equipe equipe2 = equipeService.addOrUpdateEquipe(equipe);
         Assertions.assertSame(equipe2, equipe);
         log.info("After : " + equipe.toString());
     }
