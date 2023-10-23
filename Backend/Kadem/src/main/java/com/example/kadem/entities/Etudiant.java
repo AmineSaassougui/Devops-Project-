@@ -1,5 +1,6 @@
 package com.example.kadem.entities;
 
+import com.example.kadem.dto.EtudiantDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -15,6 +16,7 @@ import java.util.Set;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Etudiant implements Serializable {
     @Id
@@ -40,5 +42,16 @@ public class Etudiant implements Serializable {
     @OneToMany(mappedBy = "etudiant")
 
     @JsonIgnore
-    Set<Contrat> contrats;
+    private Set<Contrat> contrats;
+
+    public static Etudiant toEntity(EtudiantDto dto){
+
+            return Etudiant.builder()
+                    .idEtudiant(dto.getIdEtudiant())
+                    .prenomE(dto.getPrenomE())
+                    .nomE(dto.getNomE())
+                    .option(dto.getOption())
+                    .build();
+        }
+
 }

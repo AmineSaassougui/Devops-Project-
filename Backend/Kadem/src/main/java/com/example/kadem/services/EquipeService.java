@@ -14,25 +14,19 @@ import java.util.List;
 @Slf4j
 public class EquipeService implements IEquipeService {
 
-    EquipeRepository equipeRepository;
+    private final EquipeRepository equipeRepository;
 
     @Override
     public List<Equipe> retrieveAllEquipes() {
         return equipeRepository.findAll();
     }
 
-    @Transactional
-    public Equipe addEquipe(Equipe e) {
-
-        equipeRepository.save(e);
-        return e;
-    }
-
     @Override
-    public Equipe updateEquipe(Equipe e) {
-        equipeRepository.save(e);
-        return e;
+    public Equipe addOrUpdateEquipe(Equipe e) {
+
+        return equipeRepository.save(e);
     }
+
 
     @Override
     public Equipe retrieveEquipe(Integer idEquipe) {
