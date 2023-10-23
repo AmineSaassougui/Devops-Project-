@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IDepartementService {
     List<Departement> retrieveAllDepartements();
-    Departement addOrUpdateDepartement(Departement d);
-
+    Departement addAndUpdateDepartement(Departement d);
     Departement retrieveDepartement(Integer idDepart);
+    void deleteDepartement(Integer idDepart);
 }

@@ -1,29 +1,27 @@
 package com.example.kadem;
 
-
+import com.example.kadem.entities.Departement;
 import com.example.kadem.repositories.DepartementRepository;
-
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.ArrayList;
+import java.util.List;
 
-//@SpringBootTest
-//@Slf4j
-//@ExtendWith(SpringExtension.class)
-//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest
+@Slf4j
+@ExtendWith(SpringExtension.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DepartementRepositoryTest {
-
-    /*@Autowired
-    DepartementRepository departementRepository;*/
-
-    //static Departement d = Departement.builder().nomDepart("informatique").etudiants(new ArrayList<>()).build();
 /*
+    @Autowired
+    DepartementRepository departementRepository;
+    static Departement d = Departement.builder().nomDepart("informatique").etudiants(new ArrayList<>()).build();
+
     @Test
     @Order(1)
     public void ajouterDepartement(){
@@ -70,6 +68,7 @@ public class DepartementRepositoryTest {
         log.info("Compter ==> " + t);
         Assertions.assertEquals(t, departementRepository.findAll().size());
     }
+
     @Test
     @Order(6)
     public void supprimerDepartement() {
@@ -78,8 +77,4 @@ public class DepartementRepositoryTest {
         Assertions.assertNull(dep);
         log.info("Supprimer");
     }*/
-
-
-
-
 }

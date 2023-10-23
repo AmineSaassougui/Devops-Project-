@@ -40,6 +40,7 @@ public class Etudiant implements Serializable {
 
 
     @OneToMany(mappedBy = "etudiant")
+
     @JsonIgnore
     private Set<Contrat> contrats;
 
