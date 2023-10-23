@@ -20,6 +20,7 @@ import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 @Slf4j
+//@SpringBootTest
  class EtudiantServiceTest {
 
     @Mock
