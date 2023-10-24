@@ -2,47 +2,45 @@ package com.example.kadem.controllers;
 
 import com.example.kadem.entities.Equipe;
 import com.example.kadem.services.IEquipeService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/equipe")
 public class EquipeRestController {
-    IEquipeService equipeService;
+    private final IEquipeService equipeService;
 
-    // http://localhost:8089/Kaddem/equipe/retrieve-all-equipes
+
     @GetMapping("/retrieve-all-equipes")
-    @ResponseBody
-    public List<Equipe> getEquipes() {
-        List<Equipe> listEquipes = equipeService.retrieveAllEquipes();
-        return listEquipes;
+
+     List<Equipe> getEquipes() {
+        return equipeService.retrieveAllEquipes();
     }
 
 
-    // http://localhost:8089/Kaddem/equipe/retrieve-equipe/8
+
     @GetMapping("/retrieve-equipe/{equipe-id}")
-    @ResponseBody
-    public Equipe retrieveEquipe(@PathVariable("equipe-id") Integer equipeId) {
+
+     Equipe retrieveEquipe(@PathVariable("equipe-id") Integer equipeId) {
         return equipeService.retrieveEquipe(equipeId);
     }
 
-    // http://localhost:8089/Kaddem/equipe/add-equipe
-    /* cette méthode permet d'ajouter une équipe avec son détail*/
+
     @PostMapping("/add-equipe")
-    @ResponseBody
-    public Equipe addEquipe(@RequestBody Equipe e) {
-        Equipe equipe = equipeService.addEquipe(e);
-        return equipe;
+
+     Equipe addEquipe(@RequestBody Equipe e) {
+
+        return equipeService.addOrUpdateEquipe(e);
     }
 
-    // http://localhost:8089/Kaddem/equipe/update-equipe
+
     @PutMapping("/update-equipe")
-    @ResponseBody
-    public Equipe updateEtudiant(@RequestBody Equipe e) {
-        Equipe equipe = equipeService.updateEquipe(e);
-        return equipe;
+
+     Equipe updateEtudiant(@RequestBody Equipe e) {
+
+        return equipeService.addOrUpdateEquipe(e);
     }
 }

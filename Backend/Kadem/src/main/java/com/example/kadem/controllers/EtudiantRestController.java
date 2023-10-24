@@ -1,32 +1,32 @@
 package com.example.kadem.controllers;
 
+import com.example.kadem.dto.EtudiantDto;
 import com.example.kadem.entities.Etudiant;
 import com.example.kadem.services.IEtudiantService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/etudiant")
 public class EtudiantRestController {
 
     private final IEtudiantService etudiantServices;
 
     @PostMapping("/add")
-    Etudiant addEtudiant(@RequestBody Etudiant etudiant){
+    EtudiantDto addEtudiant(@RequestBody EtudiantDto etudiant){
         return etudiantServices.addOrUpdateEtudiant(etudiant);
     }
 
     @PutMapping("/update")
-    Etudiant updateEtudiant(@RequestBody Etudiant etudiant){
+    EtudiantDto updateEtudiant(@RequestBody EtudiantDto etudiant){
         return etudiantServices.addOrUpdateEtudiant(etudiant);
     }
 
     @GetMapping("/get/{id}")
-    Etudiant getEtudiant(@PathVariable("id") Integer id){
-
+    EtudiantDto getEtudiant(@PathVariable("id") Integer id){
         return etudiantServices.retrieveEtudiant(id);
     }
 
