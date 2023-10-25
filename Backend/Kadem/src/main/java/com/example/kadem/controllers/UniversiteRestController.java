@@ -1,6 +1,8 @@
 package com.example.kadem.controllers;
 
 
+import com.example.kadem.dto.UniversiteDto;
+import com.example.kadem.entities.Departement;
 import com.example.kadem.entities.Universite;
 import com.example.kadem.services.IUniversiteService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,7 @@ public class UniversiteRestController {
 
     @GetMapping("/retrieve-all-universites")
      List<Universite> getUniversites() {
+
         return universiteService.retrieveAllUniversites();
     }
 
@@ -28,15 +31,17 @@ public class UniversiteRestController {
 
 
     @PostMapping("/add-universite")
-     Universite addUniversite(@RequestBody Universite u) {
-        return  universiteService.addOrUpdateUniversite(u);
+     Universite addUniversite(@RequestBody UniversiteDto u) {
+        Universite universite = Universite.toEntity(u);
+        return  universiteService.addOrUpdateUniversite(universite);
 
     }
 
 
     @PutMapping("/update-universite")
-     Universite updateUniversite(@RequestBody Universite u) {
-        return universiteService.addOrUpdateUniversite(u);
+     Universite updateUniversite(@RequestBody UniversiteDto u) {
+        Universite universite = Universite.toEntity(u);
+        return universiteService.addOrUpdateUniversite(universite);
 
     }
 
